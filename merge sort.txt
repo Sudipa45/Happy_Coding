@@ -1,0 +1,75 @@
+#include<bits/stdc++.h>
+using namespace std;
+void merge_sort(int arr[],int l,int r);
+void merge(int arr[],int l,int mid,int r);
+//
+void merge_sort(int arr[],int l,int r)
+{
+    if(l>=r)return;
+    int mid=l+(r-l)/2;
+    merge_sort(arr,l,mid);
+    merge_sort(arr,mid+1,r);
+    merge(arr,l,mid,r);
+}
+void merge(int arr[],int l,int mid,int r)
+{
+    int i,size_l,size_r,j,k;
+    size_l=mid-l+1;
+    size_r=r-mid;
+    int left[size_l],right[size_r];
+    for(i=0; i<size_l; i++)
+        left[i]=arr[l+i];
+    for(i=0; i<size_r; i++)
+        right[i]=arr[mid+1+i];
+    i = 0;
+    j = 0;
+    k = l;
+
+while(i < size_l && j<size_r)
+    {
+        if(left[i] <= right[j])
+        {
+            arr[k] = left[i];
+            i++;
+        }
+        else
+        {
+            arr[k] = right[j];
+            j++;
+        }
+        k++;
+    }
+    while(i<size_l)
+    {
+        arr[k] =left[i];
+        i++;
+        k++;
+    }
+    while(j<size_r)
+    {
+        arr[k] = right[j];
+        j++;
+        k++;
+    }
+}
+int main()
+{
+    int arr[100],n,i;
+
+        cout<<"Enter the number of elements:"<<endl;
+        cin>>n;
+        cout<<"Enter elements:"<<endl;
+        for(i=0; i<n; i++)
+        {
+            cin>>arr[i];
+        }
+
+        merge_sort(arr,0,n-1);
+        for(i=0; i<n; i++)
+        {
+            cout<<arr[i]<<" ";
+        }
+        cout<<endl;
+
+    return 0;
+}
