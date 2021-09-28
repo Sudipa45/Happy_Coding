@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include<string.h>
+ main()
+ {
+  int i,n,c=0;
+ char a[100],s[100];
+  gets(a);
+  n=strlen(a);
+  for(i=0;i<n;i++)
+  {
+      if(a[i]>='0'&&a[i]<='9')
+        c++;
+  }
+  printf("Total Numbers:%d\n",c);
+  for (i=0;a[i]!='\0';i++)
+  {
+      if((a[i]>='A'&&a[i]<='Z')||(a[i]>='a'&&a[i]<='z')||(a[i] == '\0')||(a[i] == ' '))
+{
+            s[i] = a[i];
+}
+
+  a[i] = '\0';
+  }
+  printf("The string removing numbers:");
+   puts(s);
+
+
+
+
+   return 0;
+
+
+ }
+
+ /*
+// string length without using function
+#include<bits/stdc++.h>
+using namespace std;
+int main() {
+    char s[100];
+    int i,c=0;
+    cin.getline(s,100);
+   for(i=0;s[i]!='\0';i++)
+   {
+       c++;
+   }
+   cout<<c<<endl;
+
+    return 0;
+
+   }
+ */

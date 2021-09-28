@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main() {
+   int x,n,i,j,remainder,sum1=0,sum=0;
+
+cin>>x>>n;
+    for(i=x;i<=n;i++)
+    {
+
+sum=0;
+      for(j=i;j!=0;)
+      {
+          remainder=j%10;
+          sum=sum+remainder;
+          j=j/10;
+
+      }
+
+sum1=sum1+sum;
+
+    }
+cout<<sum1<<endl;
+
+return 0;
+
+   }

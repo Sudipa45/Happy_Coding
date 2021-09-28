@@ -1,0 +1,51 @@
+#include<stdio.h>
+
+int main(){
+	int n;
+	int indx;
+	int value;
+//Primary array input segment
+	printf("Enter the number of values for array:");
+	scanf("%d",&n);
+	int array[n];
+	for(int i=0;i<n;i++){
+	printf("Enter %d number index value:",i);
+	scanf("%d",&array[i]);
+	}
+
+  printf("value of the array:");
+   for(int i=0;i<n;i++){
+    printf("%d",array[i]);
+	printf(";");
+   }
+
+//Deletion Segment
+
+ printf("\nEnter the index no you want to delete:");
+ scanf("%d",&indx);
+ for(int i=indx;i<n-1;i++){
+  array[i]=array[i+1];
+ }
+ printf("\nExpected value after deletion:");
+ for(int i=0;i<n-1;i++){
+printf("%d",array[i]);
+printf(";");
+ }
+
+
+//Insertion segment
+printf("\nInsert a value on index number?:");
+scanf("%d",&indx);
+printf("Insert the value:");
+scanf("%d",&value);
+
+for(int i=n-1;i>=indx-1;i--){
+ array[i+1]=array[i];
+}
+array[indx]=value;
+printf("Expected value after insertion:");
+for(int i=0;i<n;i++){
+printf("%d;",array[i]);
+}
+
+}

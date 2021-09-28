@@ -1,0 +1,61 @@
+// armstrong
+#include<bits/stdc++.h>
+using namespace std;
+int main() {
+   int  i,a,remainder,sum=0,sum1=0,p;
+   cin>>a;
+p=a;
+while(p!=0)
+   {
+      remainder= p%10;
+         sum=remainder*remainder*remainder;
+      sum1=sum1+sum;
+      p=p/10;
+
+   }
+
+if(a==sum1)cout<<"armstrong"<<endl;
+else cout<<"not armstrong"<<endl;
+
+   return 0;
+   }
+
+
+
+
+
+//armstrong number by digit
+
+#include<bits/stdc++.h>
+using namespace std;
+int main() {
+   int  i,n,a,remainder,sum,sum1=0,j=0,p;
+   cin>>a;
+   n=a;
+
+   while(n!=0)
+   {
+      remainder= n%10;
+      n=n/10;
+      j++;
+   }
+p=a;
+while(p!=0)
+   {
+      remainder= p%10;
+      sum=1;
+      for(i=1;i<=j;i++)
+      {
+         sum=sum*remainder;
+
+      }
+      sum1=sum1+sum;
+      p=p/10;
+
+   }
+
+if(a==sum1)cout<<"armstrong"<<endl;
+else cout<<"not armstrong"<<endl;
+
+   return 0;
+   }

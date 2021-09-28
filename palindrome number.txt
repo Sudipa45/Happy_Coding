@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main() {
+    long long n;
+   int  i=0,j=0,k=0,remainder,s[100],a[100],flag=0;
+   cin>>n;
+    while(n!=0)
+   {
+      remainder=n%10;
+      s[i]=remainder;
+      i++;
+      n=n/10;
+      }
+    for(k=i-1;k>=0;k--)
+      {
+          a[j]=s[k];
+          j++;
+      }
+   for(j=0;j<i;j++)
+       {
+           flag=0;
+           if(a[j]!=s[j])
+            flag=1;
+           if(flag==1)break;
+       }
+       if(flag==1)cout<<" not palindrome"<<endl;
+       else cout<<" palindrome"<<endl;
+   return 0;
+   }

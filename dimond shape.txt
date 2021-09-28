@@ -1,0 +1,52 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main() {
+   int n,k,i,j;
+    cin>>n;
+
+    for(i=1;i<=n;i++)
+    {
+
+        for(k=1;k<=n-i;k++)
+    {
+       cout<<" ";
+    }
+
+for(k=1;k<=i;k++)
+    {
+        cout<<"*";
+    }
+
+
+for(k=1;k<i;k++)
+    {
+        cout<<"*";
+    }
+cout<<endl;
+}
+
+n--;
+for(i=1;i<=n;i++)
+    {
+        for(k=1;k<=i;k++)
+    {
+       cout<<" ";
+    }
+
+        for(k=1;k<=n-i+1;k++)
+    {
+        cout<<"*";
+    }
+for(k=1;k<=n-i;k++)
+    {
+        cout<<"*";
+    }
+cout<<endl;
+
+    }
+
+
+
+return 0;
+
+   }
