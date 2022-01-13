@@ -1,32 +1,44 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>//robot cleaner cf
 using namespace std;
-vector<int>v;
 int main()
 {
-    long long n,k,i,sum=0,j,ans;
-
-
-    cin>>n>>k;
-     int arr[n+1];
-    for(i=1; i<=n; i++)
-        cin>>arr[i];
-    int c_sum[n+1];
-    for(i=1; i<=n; i++)
+int t;
+// freopen("input.txt", "r", stdin);
+    //freopen("output.txt", "w", stdout);
+   cin>>t;
+while(t--)
+{
+    int count=0,n,m,ir,ic,dr,dc;
+    cin>>n>>m>>ir>>ic>>dr>>dc;
+     if(ir==dr||ic==dc)cout<<0<<endl;
+    else
     {
-        sum+=arr[i];
-        c_sum[i]=sum;
+         while(ir!=dr||ic!=dc)
+     {
+         ir++;
+         ic++;
+         count++;
+         if(ic==m||ir==1)
+         {
+             ir++;
+             ic--;
+             count++;
+         }
+                  if(ir==n||ic==1)
+         {
+             ir--;
+             ic++;
+             count++;
+         }
+     }
+
     }
-    int temp=INT_MAX;
-    for(j=k; j<=n; j++)
-    {
+    cout<<count<<endl;
+
+}
 
 
-        int t1=c_sum[j]-c_sum[j-k];
-        if(t1<temp){
-                temp=t1;
-                ans=j-k+1;
-        }
-    }
-    cout<<ans<<endl;
+
+
     return 0;
 }
