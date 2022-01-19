@@ -1,0 +1,61 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+string grp[30];
+
+int di[]={0,-1,-1,-1,0,1,1,1};
+int dj[]={1,1,0,-1,-1,-1,0,1};
+int n;
+
+void bfs(pair<int,int> s){
+    queue<pair<int,int> > qq;
+    qq.push(s);
+    while(!qq.empty()){
+        pair<int,int> u= qq.front();
+        qq.pop();
+        for(int m=0;m<8;m++){
+            int ii = u.first+di[m];
+            int jj = u.second+dj[m];
+            if(0<=ii and ii<n and 0<=jj and jj<n){
+                if(grp[ii][jj]=='1'){
+                    grp[ii][jj]='0';
+                    qq.push((make_pair(ii,jj)));
+                }
+            }
+        }
+    }
+}
+
+void dfs(int i,int j){
+    for(int m=0;m<8;m++){
+        int ii = i+di[m];
+        int jj = j+dj[m];
+        if(0<=ii and ii<n and 0<=jj and jj<n){
+            if(grp[ii][jj]=='1'){
+                grp[ii][jj]='0';
+                dfs(ii,jj);
+            }
+        }
+    }
+}
+
+int main(){
+    int cnt=0;
+    cin>>n;
+    for(int i=0;i<n;i++){
+        cin>>grp[i];
+    }
+
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            if(grp[i][j]=='1'){
+                cout<<i<<" "<<j<<"\n";
+                cnt++;
+//                bfs(make_pair(i,j));
+                dfs(i,j);
+            }
+        }
+    }
+    cout<<cnt<<"\n";
+}
+
